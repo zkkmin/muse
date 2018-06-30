@@ -1,15 +1,19 @@
 import { Injectable } from '@angular/core';
-import { QUOTES } from './quotes';
-import { Observable, of} from 'rxjs';
+import { Observable } from 'rxjs';
+import { HttpClient } from '@angular/common/http';
 
 @Injectable({
   providedIn: 'root'
 })
 export class QuoteService {
-  getQuote():  Observable<string> {
-    var index = Math.floor(Math.random() * 3);
-    var randomQuote = QUOTES[index];
-    return of(randomQuote);
+  private quoteUrl = "https://talaikis.com/api/quotes/random/";
+
+  getQuote():  Observable <{}> {
+  
+    return this.http.get(this.quoteUrl)
+
   };
-  constructor() { }
+  constructor(
+    private http: HttpClient
+  ) { }
 }

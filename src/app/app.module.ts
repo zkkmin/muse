@@ -1,6 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-
+import { HttpClientModule } from '@angular/common/http';
 import { AppComponent } from './app.component';
 import { RandomQuoteComponent } from './random-quote/random-quote.component';
 
@@ -10,7 +10,8 @@ import { RandomQuoteComponent } from './random-quote/random-quote.component';
     RandomQuoteComponent
   ],
   imports: [
-    BrowserModule
+    BrowserModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]

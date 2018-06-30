@@ -10,12 +10,16 @@ export class RandomQuoteComponent implements OnInit {
 
   constructor(private quoteService: QuoteService) { }
 
-  getQuote(): void {
+    getQuote(): void {
     this.quoteService.getQuote()
-      .subscribe(quote => this.quote = quote);
+      .subscribe(quote => { 
+        this.quote = '"' + quote['quote'] + '"'; 
+        this.author = '~' + quote['author'] 
+      });
   }
 
   quote: string;
+  author: string;
 
   ngOnInit() {
     this.getQuote();
